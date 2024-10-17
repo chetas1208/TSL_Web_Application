@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Package</title>
+<style>
+h1 {
+  text-align: center;
+  font-size: 24px;
+}
+
+img {
+  max-width: 500px;
+  max-height: 500px;
+  margin: 0 auto;
+}
+
+label {
+  font-size: 16px;
+}
+
+input {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+select {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+#s1{
+  background-color: #dc3545;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+}
+</style>
+<script>
+  function validateForm() {
+    var date = document.getElementById('date').value;
+    var to = document.getElementById('to').value;
+    if (date === '') {
+      alert('Please enter a date.');
+      return false;
+    }
+    if (to === '') {
+      alert('Please select a to city.');
+      return false;
+    }
+    return true;
+  }  
+</script>
+</head>
+<body align="center">
+<h1>Custom Package</h1>
+<hr>
+<div style="margin-left: 5%; margin-top: 3%;">
+  <iframe src="https://www.google.com/maps/embed?" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+   referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<br><br><br>
+
+<form action="Payment.php" method="post">
+  <div style="font-size: 20px;">
+    <p style="margin-left: 5%;">Date: &emsp;&emsp;&emsp;
+        From:&emsp;<input type="date"> &emsp;&emsp;&emsp;&emsp;
+        To:&emsp;<input type="date">
+    </p>
+</div><br><br>
+<div style="font-size: 20px;">
+  <p style="margin-left: 5%;">Destination: &emsp;&emsp;
+      From:&emsp;
+      <select>
+          <option selected>Ahmedabad</option>
+      </select> 
+      &emsp;&emsp;&emsp;&emsp;
+      To:&emsp;
+      <select id="to" name="to">
+          <option>Delhi</option>
+          <option>Kolkata</option>
+          <option>Chennai</option>
+      </select> 
+  </p>
+</div>
+<br><br><br>
+<input id="s1" name="s1" type="submit" value="Pay">
+</form>
+</body>
+</html>

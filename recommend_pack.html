@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Recommended packages</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        radio {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        checkbox {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        input[type="checkbox"]:checked+label::before {
+            content: "";
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            background-color: #ccc;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        input[type="checkbox"]:checked+label::after {
+            content: "\2022";
+            position: absolute;
+            top: 9px;
+            left: 9px;
+            color: #2196F3;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: red;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100px;
+        }
+    </style>
+    <script>
+        function checkCheckboxes() {
+            var p1 = document.getElementById("p1");
+            var p2 = document.getElementById("p2");
+            var p3 = document.getElementById("p3");
+          
+            var packages = [];
+            if (p1.checked) {
+              packages.push("p1");
+            }
+            if (p2.checked) {
+              packages.push("p2");
+            }
+            if (p3.checked) {
+              packages.push("p3");
+            }
+          
+            if (packages.length > 1) {
+              alert("You can only select one package at a time.");
+              document.getElementById("submit").disabled = true;
+            } else {
+              document.getElementById("submit").disabled = false;
+            }
+          }
+          
+          window.onload = function() {
+            document.getElementById("submit").disabled = true;
+            p1.addEventListener("click", checkCheckboxes);
+            p2.addEventListener("click", checkCheckboxes);
+            p3.addEventListener("click", checkCheckboxes);
+          };
+          
+    </script>
+</head>
+
+<body aliign="justify">
+    <h1 align="center">Recommended packages</h1>
+    <form action="Payment2.php" method="post">
+        <fieldset>
+            <table>
+                <tr>
+                    <td>
+                        <label for="p1">
+                            <b>
+                                Ahmedabad-Kutch(2 days-2 nights)
+                                <br>
+                                [includes - Bhuj fort, Shishmahel
+                                <br>
+                                White Desert(Dhordo)]
+                            </b>
+                        </label>
+                    </td>
+                    <td>
+                        3000 /-
+                    </td>
+                    <td>
+                        <input type="checkbox" name="p1" id="p1">
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td>
+                        <label for="p2">
+                            <b>
+                                Ahmedabad-Mumbai(3 days-2 nights)
+                                <br>
+                                [includes - Mumbai Central, Imagica
+                                <br>
+                                Ajanta-Elora, Marine Drive]
+                            </b>
+                        </label>
+                    </td>
+                    <td>
+                        3500 /-
+                    </td>
+                    <td>
+                        <input type="checkbox" name="p2" id="p2">
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td>
+                        <label for="p3">
+                            <b>
+                                Ahmedabad-Bhavnagar(2 days-2 nights)
+                                <br>
+                                [includes - Bhavnagar city, Mahua,
+                                <br>
+                                Sihore, Palitana]
+                            </b>
+                        </label>
+                    </td>
+                    <td>
+                        3000 /-
+                    </td>
+                    <td>
+                        <input type="checkbox" name="p3" id="p3">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+            <br>
+            <br>
+            <button type="submit" id="submit">Pay</button>
+        </fieldset>
+    </form>
+</body>
+
+</html>

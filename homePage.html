@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Home Page </title>
+	<style>
+		.top{
+			width: 100%;
+			padding-top: 3%;
+			text-align: center;
+		}
+		.split-left {
+			width: 45%;
+			height: 60%;
+			z-index: 1;
+			margin: auto 0;
+            padding-top: 2%;
+			top: 30%;
+			left: 0;
+			text-align: center;
+		}
+		.left {
+			left: 0;
+			background-color: white;
+		}
+		.right {
+			right: 0;
+			background-color: white;
+		}
+		.split-right {
+			width: 50%;
+			height: 60%;
+			z-index: 1;
+			margin: 0 auto;
+			position: absolute;
+			top: 30%;
+			right: 2%;
+			transform: translate(0%,0%);
+			text-align: center;
+		}
+		.link-btn {
+			background-color: #c9060f;
+			color: white;
+			padding: 14px 90px;
+			margin: 10px 10px;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+			border-radius: 20px;
+			appearance: button;
+		}
+		a{
+            text-decoration: dotted;
+			font-family: Arial;
+			display: inline-block;
+		}
+		a:hover {
+			color: red;
+			background-color: white;
+  		}
+		a:active {
+			color: black;
+			background-color: white;
+		}
+		.vertical {
+			border-left: 2px solid black;
+			height: 79%;
+			position:absolute;
+			top: 4;
+			left: 45%;
+			border-radius: 5px;
+		}
+        input[type=email], input[type=password] {
+            width: 100%;
+            padding: 6px 10px;
+            margin: 4px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 12px;
+        }
+        button {
+            background-color: #c9060f;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .box {
+            max-width: 350px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #ffff;
+            margin: 0 0 10px;
+            padding: 10px 0;
+            flex-grow: 1;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .headingsContainer{
+        text-align: center;
+        }
+        .headingsContainer p{
+            color: gray;
+        }
+        .mainContainer{
+            padding: 16px;
+        }
+        .subcontainer{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+        .container {
+            padding: 16px;
+        }
+        span.password {
+            float: right;
+            padding-top: 16px;
+        }
+        .login-button {
+            text-align: center;
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid transparent;
+            background-color: #f60505;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+        .signup-button {
+            text-align: center;
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid transparent;
+            background-color: #f60505;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+        .important {
+            font-weight:bold
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: rgba(240, 248, 255, 0.18);
+            background-color: rgba(0,0,0,0.4);
+            border-radius: 12px;
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            border: 4px solid #888;
+            width: 30%;
+            border-radius: 15px;
+        }
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+        .animate {
+            animation: animatezoom 0.6s
+        }
+        @keyframes animatezoom {
+            from {transform: scale(0)} 
+            to {transform: scale(1)}
+        }
+        @media screen and (max-width: 300px) {
+            span.password {
+            display: block;
+            float: none;
+            }
+        }
+        .hover{
+            opacity: 0.7;
+        }
+        .separator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgb(20, 1, 1);
+            margin-top: 6px;
+        }
+        .separator .line {
+            height: 2px;
+            width: 40%;
+            background-color: #120101;
+        }
+        .other {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            background-color: white;
+        }
+        .login-btn {
+            margin: 1rem;
+            border: 0;
+            cursor: pointer;
+            font-size: 14px;
+            color: #385185;
+            font-weight: 600;
+            background: local;
+            border-radius: 50%;
+        }
+        .fb-icon {
+            color: #385185;
+            font-size: 1rem;
+            padding-right: 1px;
+        }
+        .continue-button {
+      text-align: center;
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid transparent;
+      background-color: #f60505;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 12px;
+    }
+    .important {
+      font-weight:bold
+    }
+    a:link{
+        color: blue;
+    }
+	    </style>
+</head>
+<body>
+	<div class="top">
+		<h1 style="font-size: 40px;"> Home </h1>
+		<hr>
+	</div>
+	<div class = "vertical"></div>
+    <div class="split-right">
+        <form style="position: absolute;">
+            <div class="right">
+                <div class="right">
+                    <h1 style="font-size: 50px;">About Us</h1><br><br>
+                </div>
+                <div class="right">
+                    <p style="text-align: justify; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: normal;background-color: white; font-size: 40px;">
+                        Hello users,We are team TSL. <br>
+                        Our initiative is to provide a trip package designing facility to the user with our unique feature TRIP PLANNER. We give options to the users to select their own tour plan or an auto generated plan. We provide a visual experience of trip destination using maps. We are happy and prompt to serve our users.
+                        -Team TSL 
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+	<div class="split-left">
+		<div class="left">
+			<br><br><br>
+			<div>
+				<button class="link-btn" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"> Register </button>
+			</div>
+			<br><br><hr><br>
+			<div>
+				<button class="link-btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"> Log In </button>
+			</div>   
+			<br><br><hr><br><br><br>
+			<div>
+				<a href="Project Info.html" target="_top"><button class="link-btn"> Project Info </button></a>
+			</div>
+			<br><br><hr><br>
+			<div>
+				<a href="Packages.php" target="_top"><button class="link-btn"> Select Package </button></a>
+			</div>
+			<br><br><hr><br>
+		</div>
+        <div class="other left">
+            <button class="login-btn" type="button">
+            <a href="https://accounts.google.com" title="Sign in with Google"><img src="google icon.jpg" style="width:50px;height:50px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.facebook.com" title="Sign in with Facebook"><img src="facebook.png" style="width:50px;height:50px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.linkedin.com" title="Sign in with Linkedin"><img src="linkedin icon.jpg" style="width:50px;height:50px;"></a>
+            </button>
+        </div>
+
+        <div id="id01" class="modal">
+                    <form class="modal-content animate" style="text-align: left;" action="Login.php" method="post">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close">&times;</span>
+                    </div>
+
+                    <div class="container">
+                        <span class="important">LOGIN<br/></span>
+                        <br/>
+
+                        <label for="un1"><b>Enter Email</b></label>
+                        <input type="email" placeholder="Email" name="un1" id="un1" required>
+                        <br/>
+                        <label for="password"><b>Enter Password</b></label>
+                        <input type="password" placeholder="Password" name="p1" id="p1" required>
+                        <label>
+                        <br/>
+                        <input type="checkbox" name="remember" style="text-align: left;"> Remember me
+                        <br/>
+                        </label> 
+                        <button class="login-button" title="login" type="submit">Log In</button>
+                        <label>
+                        <span class="password" name="Forgot" style="cursor: pointer;"><a onclick="document.getElementById('id03').style.display='block';document.getElementById('id01').style.display='none'" style="width:auto;" title="click to reset password">Forgot Password?</a></span>
+                        <br/>
+                        </label>
+                        <br/>
+                        <div class="separator">
+                        <div class="line"></div>
+                        <p>OR</p>
+                        <div class="line"></div>
+                        </div>
+                        <br>
+                        <div class="other">
+                        <button class="login-btn" type="button">
+                            <a href="https://accounts.google.com" title="Sign in with Google"><img src="google icon.jpg" style="width:50px;height:50px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="https://www.facebook.com" title="Sign in with Facebook"><img src="facebook.png" style="width:50px;height:50px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="https://www.linkedin.com" title="Sign in with Linkedin"><img src="linkedin icon.jpg" style="width:50px;height:50px;"></a>
+                        </button>
+                        </div>
+                        <div class="box">
+                        <p style="cursor: pointer;">Need an account? <a class="signup" onclick="document.getElementById('id02').style.display='block';document.getElementById('id01').style.display='none'" style="width:auto;" title="Sign up">Register</a></p>
+                    </div>
+                    </div>
+                    </form>
+                </div>
+
+                <script>
+                var modal = document.getElementById('id01');
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+                </script>
+            
+
+  <div id="id02" class="modal">
+    <form class="modal-content animate" style="text-align: left; opacity: 5;" action="Register.php" method="post">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close">&times;</span>
+      </div>
+      <div class="container">
+        <span class="important">REGISTER<br/></span>
+        <br/>
+
+        <label for="un2"><b>Enter Email</b></label>
+        <input type="email" placeholder="Email" name="un2" id="un2" required>
+        <br/>
+        <label for="password"><b>Enter New Password</b></label>
+        <input type="password" placeholder="Password" name="p2" id="p2" required> 
+        <button class="signup-button" title="signup" type="submit">Sign Up</button>
+        <br/>
+        <div class="separator">
+          <div class="line"></div>
+          <p>OR</p>
+          <div class="line"></div>
+        </div>
+        <br>
+        <div class="other">
+          <button class="login-btn" type="button">
+            <a href="https://www.google.com" title="Register with Google"><img src="google icon.jpg" style="width:50px;height:50px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.facebook.com" title="Register with Facebook"><img src="facebook.png" style="width:50px;height:50px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.linkedin.com" title="Register with Linkedin"><img src="linkedin icon.jpg" style="width:50px;height:50px;"></a>
+          </button>
+        </div>
+        <div class="box">
+          <p style="cursor: pointer;">Already a user? <a class="login" onclick="document.getElementById('id01').style.display='block'; document.getElementById('id02').style.display='none'" style="width:auto;">LOGIN</a></p>
+      </div>
+      </div>
+    </form>
+  </div>
+  <script>
+    var modal = document.getElementById('id02');
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>
+  
+<div id="id03" class="modal" style="padding-top: 10%;">
+  <form class="modal-content animate" style="text-align: left;" action="" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close">&times;</span>
+    </div>
+
+    <div class="container">
+      <span class="important">FORGOT PASSWORD<br/></span>
+      <br/>
+
+      <label for="un3"><b>Enter your Email address</b></label>
+      <input type="email" placeholder="Enter Email address" name="un3" id="un3" required>
+      <br>
+      <br>
+      
+      <!-- <input type="button" name="Continue button" value="Continue" onclick="location.href='new password.html'"> -->
+      <button class="continue-button" title="Continue" value="Continue" type="button" onclick="document.getElementById('id04').style.display='block';document.getElementById('id03').style.display='none'">
+        Continue
+      </button>
+      <br>
+      <br>
+    </div>
+  </form>
+</div>
+
+<script>
+var modal = document.getElementById('id03');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+  
+    <div id="id04" class="modal">
+      <form class="modal-content animate" style="text-align: left;" action="New_pass.php" method="post">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close">&times;</span>
+        </div>
+  
+        <div class="container">
+          <span class="important header-text" style="width: 100%; text-align: center;">NEW PASSWORD<br/></span>
+          <br/>
+          <div class="infobox" style="background-color: green;text-align: center; margin: 0 auto;">
+            <p>Please create a new password that you don't use on any other site.</p>
+          </div>
+          <br>
+          <label for="p3"><b>Create new Password</b></label>
+          <input type="password" placeholder="Create New Password" name="p3" required>
+          <br>
+          <br>
+          <label for="p4"><b>Confirm new Password</b></label>
+          <input type="password" placeholder="Confirm New Password" name="p4" required>
+          <br>
+          <br>
+          <button class="continue-button" title="Continue" value="Continue" type="submit">
+            Continue
+          </button>
+          <br>
+          <br>
+        </div>
+      </form>
+    </div>
+  
+    <script>
+    var modal = document.getElementById('id04');
+  
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>
+</body>
+
+</html>
